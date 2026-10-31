@@ -1,0 +1,13 @@
+#!name = 夸克网盘每日签到
+#!desc = 每日自动领取夸克网盘签到空间奖励
+#!author = Liano
+#!homepage = https://github.com/Lianolt/Ad-remove-plugin
+#!date = 2026-10-31
+
+[Argument]
+kps = input,"",type=string,tag=KPS,desc=从夸克签到请求中复制 kps 参数
+sign = input,"",type=string,tag=SIGN,desc=从夸克签到请求中复制 sign 参数
+vcode = input,"",type=string,tag=VCODE,desc=从夸克签到请求中复制 vcode 参数
+
+[Script]
+cron "0 8 * * *" then script("Quark_Checkin_Loon.js", {${kps}, ${sign}, ${vcode}}) with timeout=60, tag="夸克网盘每日签到"
